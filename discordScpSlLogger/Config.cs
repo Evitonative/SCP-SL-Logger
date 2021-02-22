@@ -6,8 +6,8 @@ namespace discordScpSlLogger
     public class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
-        public string RaUrl { get; set; } = "https://discord.com/api/webhooks/813130070675554374/Gr5q4KJPTNATEkGxUPosA267ZhiIZGF8VVvhS2ghuoq3g4rqGo_0LLYYHW0e3CeKsYhk";
-        public string NormalUrl { get; set; } = "https://discord.com/api/webhooks/813135738207338506/Nmt4u3RcCO2rYeyr3bRVdc_P-kFjZev54EWDfOuzCWsruCRyK9s8YadKEHwovGp_99nq";
+        public string RaUrl { get; set; } = "";
+        public string NormalUrl { get; set; } = "";
         
         [Description("Waiting for Players")]
         public bool ShowInRaLogWfp { get; set; } = true;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Exiled.API.Enums;
 using Exiled.API.Features;
 
@@ -28,11 +29,12 @@ namespace discordScpSlLogger
         public override void OnDisabled()
         {
             Server.SendingRemoteAdminCommand -= server.SendingRemoteAdminCommand;
-            
+            Server.WaitingForPlayers -= server.WaitingForPlayers;
+
             server = null;
         }
 
-        public static  void DiscordHook(string url, string msg)
+        public static void DiscordHook(string url, string msg)
         {
             Http.Post(url, new System.Collections.Specialized.NameValueCollection()
             {
