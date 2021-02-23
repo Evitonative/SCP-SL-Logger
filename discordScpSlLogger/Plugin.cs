@@ -34,9 +34,9 @@ namespace discordScpSlLogger
             server = null;
         }
 
-        public static void DiscordHook(string url, string msg)
+        public static async void DiscordHook(string url, string msg) //TODO: Ensure this will not thwrow an error when no ip specified
         {
-            Http.Post(url, new System.Collections.Specialized.NameValueCollection()
+            await Http.Post(url, new System.Collections.Specialized.NameValueCollection()
             {
                 {
                     "content",
