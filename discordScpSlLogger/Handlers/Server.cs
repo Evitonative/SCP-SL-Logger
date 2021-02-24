@@ -7,8 +7,10 @@ namespace discordScpSlLogger.Handlers
 {
     class Server
     {
+        private readonly Config _config = Plugin.Instance.Config;
         public void SendingRemoteAdminCommand(SendingRemoteAdminCommandEventArgs ev)
         {
+            if (!_config.RaLogEnabled) return;
             var args = "";
             foreach (var arg in ev.Arguments)
             {
@@ -17,22 +19,17 @@ namespace discordScpSlLogger.Handlers
 
             var msg = Plugin.Instance.Config.RaLog
                 .Replace("$user", ev.CommandSender.Nickname)
-                .Replace("$id", ev.CommandSender.SenderId)
+                .Replace("$steamid", ev.CommandSender.SenderId)
                 .Replace("$cmd", ev.Name)
-                .Replace("$args", args);
+                .Replace("$args", args)
+                .Replace("$allowed", ev.IsAllowed.ToString());
 
-            Plugin.DiscordHook(Plugin.Instance.Config.RaUrl, msg);
+            Plugin.DiscordHook(msg, true);
         }
-
-        private static int GetMethodHash(Type invokeClass, string methodName)
-        {
-            return invokeClass.FullName.GetStableHashCode() * 503 + methodName.GetStableHashCode();
-        }
-
+        
         public void WaitingForPlayers()
         {
-            if(Plugin.Instance.Config.ShowInRaLogWfp) Plugin.DiscordHook(Plugin.Instance.Config.RaUrl, Plugin.Instance.Config.WaitingForPlayers);
-            if(Plugin.Instance.Config.ShowInNormalLogWfp) Plugin.DiscordHook(Plugin.Instance.Config.NormalUrl, Plugin.Instance.Config.WaitingForPlayers);
+            if(_config.WaitingForPlayers != "") Plugin.DiscordHook(Plugin.Instance.Config.WaitingForPlayers);
         }
     }
 }
