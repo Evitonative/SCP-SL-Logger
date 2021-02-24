@@ -29,8 +29,8 @@ namespace discordScpSlLogger
             Server.SendingRemoteAdminCommand += server.SendingRemoteAdminCommand;
             Server.WaitingForPlayers += server.WaitingForPlayers;
 
-            Player.Joined += player.Joined;
-            Player.Left += player.Left;
+            Player.Verified += player.Joined;
+            Player.Destroying += player.Left;
             Player.Kicked += player.Kicked;
             Player.Banned += player.Banned;
         }
@@ -39,9 +39,9 @@ namespace discordScpSlLogger
         {
             Server.SendingRemoteAdminCommand -= server.SendingRemoteAdminCommand;
             Server.WaitingForPlayers -= server.WaitingForPlayers;
-
-            Player.Joined -= player.Joined;
-            Player.Left -= player.Left;
+            
+            Player.Verified -= player.Joined;
+            Player.Destroying -= player.Left;
             Player.Kicked -= player.Kicked;
             Player.Banned -= player.Banned;
 
