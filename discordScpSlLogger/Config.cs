@@ -7,6 +7,7 @@ namespace discordScpSlLogger
     {
         [Description("Note: To disable a value set it empty. Do NOT leave the URLs empty. Disable the RAlog feature by settings it to false.")]
         public bool IsEnabled { get; set; } = true;
+        public bool RespectDoNotTrack { get; set; } = true;
         public string RaUrl { get; set; } = "";
         public string NormalUrl { get; set; } = "";
 
