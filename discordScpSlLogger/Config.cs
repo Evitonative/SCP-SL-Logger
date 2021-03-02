@@ -13,6 +13,10 @@ namespace discordScpSlLogger
         [Description("RaLog")]
         public bool RaLogEnabled { get; set; } = true;
         public string RaLog { get; set; } = ":notepad_spiral: $user($steamid) used RA command: $cmd $args | Permitted: $allowed";
+        
+        [Description("Console Log")]
+        public bool ConsoleLogInRaLog { get; set; } = true;
+        public string ConsoleLog { get; set; } = ":notepad_spiral: $user($steamid) used Normal command: $cmd $args | Permitted: $allowed";
 
         [Description("Waiting for Players")]
         public string WaitingForPlayers { get; set; } = ":beginner: Waiting for players...";

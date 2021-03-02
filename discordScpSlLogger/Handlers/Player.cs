@@ -42,7 +42,7 @@ namespace discordScpSlLogger.Handlers
 
         public void Banned(BannedEventArgs ev)
         {
-            var banTimeMin = (ev.Details.Expires - ev.Details.IssuanceTime)/10000000/60; //TODO: Setup calculation
+            var banTimeMin = (ev.Details.Expires - ev.Details.IssuanceTime)/10000000/60;
             var banTimeHrs = 0;
             while (banTimeMin >= 60)
             {

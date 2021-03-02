@@ -26,7 +26,23 @@ namespace discordScpSlLogger.Handlers
 
             Plugin.DiscordHook(msg, true);
         }
-        
+
+        public void SendingConsoleCommand(SendingConsoleCommandEventArgs ev)
+        {
+            var args = "";
+            foreach (var arg in ev.Arguments)
+            {
+                args = $"{args} {arg}";
+            }
+            
+            var msg = Plugin.Instance.Config.RaLog
+                .Replace("$user", ev.Player.Nickname)
+                .Replace("$steamid", ev.Player.UserId)
+                .Replace("$cmd", ev.Name)
+                .Replace("$args", args)
+                .Replace("$allowed", ev.IsAllowed.ToString());
+        }
+
         public void WaitingForPlayers()
         {
             if(_config.WaitingForPlayers != "") Plugin.DiscordHook(Plugin.Instance.Config.WaitingForPlayers);

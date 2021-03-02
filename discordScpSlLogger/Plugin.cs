@@ -29,7 +29,7 @@ namespace discordScpSlLogger
             //Server Events
             //Commands
             Server.SendingRemoteAdminCommand += server.SendingRemoteAdminCommand;
-            //TODO: Server.SendingConsoleCommand += server.SendingConsoleCommand;
+            Server.SendingConsoleCommand += server.SendingConsoleCommand;
             //Round Events
             Server.WaitingForPlayers += server.WaitingForPlayers;
             //TODO: Server.RoundStarted += server.RoundStarted;
@@ -85,7 +85,8 @@ namespace discordScpSlLogger
             //Server Events
             //Commands
             Server.SendingRemoteAdminCommand -= server.SendingRemoteAdminCommand;
-            //TODO: Server.SendingConsoleCommand -= server.SendingConsoleCommand;
+            Server.SendingConsoleCommand -= server.SendingConsoleCommand;
+            
             //Round Events
             Server.WaitingForPlayers -= server.WaitingForPlayers;
             //TODO: Server.RoundStarted -= server.RoundStarted;
