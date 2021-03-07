@@ -28,7 +28,7 @@ namespace discordScpSlLogger
         public bool PlayerKickedInRa { get; set; } = false;
         public string PlayerKicked { get; set; } = ":no_entry: `$Name($SteamId | $Id | ||$Ip||)` has been kicked for `$Reason`.";
         public bool PlayerBannedInRa { get; set; } = false;
-        public string PlayerBanned { get; set; } = ":name_badge: `$Name($SteamId | $Id | ||$Ip||)` has been banned by `$IssuerName  ($IssuerSteamId | $IssuerId | ||$IssuerIp||)` for `$Reason` for $BanTime";
+        public string PlayerBanned { get; set; } = ":name_badge: `$Name($SteamId | $Id | ||$Ip||)` has been banned by `$IssuerName ($IssuerSteamId | $IssuerId | ||$IssuerIp||)` for `$Reason` for $BanTime";
         public string BanTimeFormat { get; set; } = "$dayd $hrsh $minm";
     }
 }
